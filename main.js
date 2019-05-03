@@ -121,7 +121,7 @@ function Board (options){
       return {result, winningLine};
     }
 
-    //Check for tie
+    //Checks for tie
     if (moveCount(board) == 9){
       result = RESULT.tie;
       return {result, winningLine}
@@ -209,7 +209,7 @@ function Board (options){
   function render(){
     function getPlayerName(playerSymbol){
       if(playerSymbol === state.players[0].symbol)
-        return "Player1"
+        return "Player"
       return 'Computer'
     }
 
@@ -222,7 +222,7 @@ function Board (options){
     }
 
     function htmlQ1(){
-      const htm12 =`<div id ="q1"><h3>${!state.players[1].isComputer? "Player 1, <br />" : ""}Which symbol would you like to use?</h3> 
+      const htm12 =`<div id ="q1"><h3>${!state.players[1].isComputer? "Player, <br />" : ""}Which symbol would you like to use?</h3> 
       ${htmlButton(1, "X", "X")} 
       ${htmlButton(1, "O", "O")}`
       return htm12
@@ -230,12 +230,12 @@ function Board (options){
 
     function htmlGame(){
       const moveNumber = moveCount(state.game.gameBoard) + 1
-      const playerName = state.game.turn === 0 ? 'Player1' : 'Computer'
+      const playerName = state.game.turn === 0 ? 'Player' : 'Computer'
       let htmlBefore = `<h3>move: ${moveNumber} ${htmlSpaces(5)} turn: ${playerName}</h3>`
       let board = state.game.gameBoard.reduce(function(acc,curr,rowIndex){
           return acc + `<div id= "row${rowIndex}" class="row">${curr.map((str,colIndex)=>`<div class="cell col${colIndex}" data-row=${rowIndex} data-column=${colIndex}>${str}</div>`).join('')}</div>`
         }, ``)
-        let htmlAfter = `<h4>Score: ${htmlSpaces(1)} Player 1 - ${state.players[0].score} ${htmlSpaces(2)} ${"Computer"} - ${state.players[1].score}</h4>`
+        let htmlAfter = `<h4>Score: ${htmlSpaces(1)} Player - ${state.players[0].score} ${htmlSpaces(2)} ${"Computer"} - ${state.players[1].score}</h4>`
       return `<div id='gameView'> ${htmlBefore} <div id="board">${board}</div> ${htmlAfter} </div>`
     }
 
@@ -262,7 +262,7 @@ function Board (options){
           `<div class="cell col${colIndex} ${winningLine.some(arr=>(arraysAreEqual(arr,[rowIndex,colIndex]))) ? "winningLine" : ""}"
             data-row=${rowIndex} data-column=${colIndex}>${str}</div>`).join('')}</div>`
         }, ``)
-        let htmlAfter = `<h4>Score: ${htmlSpaces(1)} Player 1 - ${state.players[0].score} ${htmlSpaces(2)} ${"Computer"} - ${state.players[1].score}</h4>`
+        let htmlAfter = `<h4>Score: ${htmlSpaces(1)} Player - ${state.players[0].score} ${htmlSpaces(2)} ${"Computer"} - ${state.players[1].score}</h4>`
       return `<div id='resultView'> ${htmlBefore} <div id="board">${board}</id> ${htmlAfter} </div>`
     }
 
