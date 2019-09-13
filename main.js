@@ -251,7 +251,7 @@ function Board (options){
       }
 
       let {result, winningLine} = getResult(state.game.gameBoard, state.players[state.game.turn].symbol )
-      let resultText = "tie"
+      let resultText = "Tie"
       if(result !== RESULT.tie)
         resultText = getPlayerName(result) + " Won"
 
