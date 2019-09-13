@@ -1,5 +1,5 @@
 html, body {
-    background-color: black;
+    background-color: #262A35;
     color: white;
     width: 100%;
     display:flex;
@@ -15,7 +15,7 @@ html, body {
 
 button {
     background-color: white !important;
-    color:black !important;
+    color:#262A35 !important;
     margin-top: 1em;
 }
   
@@ -25,12 +25,12 @@ button {
   
 .cell {
     display: inline-block;
-    border: 1px solid black;
+    border: 1px solid #262A35;
     width: 150px;
     height: 150px;
     background-color: white;
     overflow: hidden;
-    color: black;
+    color: #262A35;
     font-size: 100px;
     text-align: center;
 }
